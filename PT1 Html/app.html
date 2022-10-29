@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Loan Calculator</title>
+
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"
+    />
+
+    <!-- add to homescreen for ios -->
+    <link rel="stylesheet" href="ion.css" />
+  </head>
+  <style>
+    #head {
+      /*--background: #f5b041;*/
+      --background: #0b486b; /* fallback for old browsers */
+      --background: -webkit-linear-gradient(
+        to right,
+        #f56217,
+        #0b486b
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      --background: linear-gradient(
+        to right,
+        #f56217,
+        #0b486b
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      text-align: center;
+    }
+    #head ion-title {
+      font-weight: bolder;
+      font-size: 20px;
+    }
+    #content {
+      --background: #0f2027; /* fallback for old browsers */
+      --background: -webkit-linear-gradient(
+        to bottom,
+        #2c5364,
+        #203a43,
+        #0f2027
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      --background: linear-gradient(
+        to bottom,
+        #2c5364,
+        #203a43,
+        #0f2027
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    .butt {
+      text-align: center;
+    }
+    .icon {
+      display: flex;
+      position: relative;
+    }
+    ion-title{
+      color: rgba(255, 255, 255, 0.479);
+      font-weight: bolder;
+    }
+  </style>
+
+  <body>
+    <ion-app>
+      <ion-header [translucent]="true">
+        <ion-toolbar id="head">
+          <ion-title> Loan App Calculator </ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content id="content">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-card>
+                <!--
+                    <ion-card-header>
+                      <ion-card-title>Expenses </ion-card-title>
+                    </ion-card-header>
+                      -->
+                <ion-card-content>
+                  <ion-item>
+                    <ion-label position="floating">Loan Amount</ion-label>
+                    <ion-input type="Number" id="la"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="floating">Interest Rate</ion-label>
+                    <ion-input type="number" id="ir"></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label position="floating">Number of Months</ion-label>
+                    <ion-input type="number" id="nm"></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label position="floating">Monthly Payment</ion-label>
+                    <ion-input type="number" id="mp"></ion-input>
+                  </ion-item>
+
+                  <div class="butt">
+                    <ion-button id="btn-clear" fill="outline"
+                      >Clear
+                      <ion-icon
+                        slot="start"
+                        name="refresh-circle-outline"
+                      ></ion-icon>
+                    </ion-button>
+                    <ion-button id="btn-add" fill="outline"
+                      >Calculate
+                      <ion-icon
+                        slot="start"
+                        name="add-circle-outline"
+                      ></ion-icon
+                    ></ion-button>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Result: </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-item>
+                    <ion-label>Loan Amount: <span id="LA"></span></ion-label>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label
+                      >Annual Interest Rate: <span id="AR"></span
+                    ></ion-label>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label
+                      >Number of Months: <span id="TNM"></span
+                    ></ion-label>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label
+                      >Monthly Payment: <span id="MP"></span
+                    ></ion-label>
+                  </ion-item>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
+    </ion-app>
+    <script src="app.js"></script>
+  </body>
+</html>
